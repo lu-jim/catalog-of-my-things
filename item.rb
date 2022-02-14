@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 require 'date'
 # class item
 class Item
@@ -16,19 +15,19 @@ class Item
   end
 
   def add_genre(genre)
-    @genre.push(genre) unless @genre.include? (genre)
+    @genre.push(genre) unless @genre.include?(genre)
   end
 
   def add_author(author)
-    @author.push(author) unless @author.include? (author)
+    @author.push(author) unless @author.include?(author)
   end
 
   def add_source(source)
-    @source.push(source) unless @source.include? (source)
+    @source.push(source) unless @source.include?(source)
   end
 
   def add_label(label)
-    @label.push(label) unless @label.include? (label)
+    @label.push(label) unless @label.include?(label)
     puts @label
   end
 
@@ -39,7 +38,7 @@ class Item
 
   def move_to_archive
     @archived = can_be_archived?
-   end
+  end
 end
 
 # item = Item.new(true, 10/10/2000)
