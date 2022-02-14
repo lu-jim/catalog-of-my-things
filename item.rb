@@ -20,10 +20,14 @@ class Item
 
   def add_author(author)
     @author.push(author) unless @author.include? (author)
-    puts @author
   end
 
-  
+  def add_source(source)
+    @source.push(source) unless @source.include? (source)
+    puts @source
+  end
+
+
 
 
   def can_be_archived?; end
@@ -32,4 +36,4 @@ class Item
 end
 
 item = Item.new(true)
-item.add_author('author')
+item.add_source('autho3')
