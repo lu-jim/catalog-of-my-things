@@ -1,14 +1,13 @@
 require 'date'
-# class item
+
 class Item
   attr_reader :id
-  attr_accessor :genre, :author, :source, :label, :published_date
+  attr_accessor :genre, :label, :published_date :archived
 
-  def initialize(archived: false)
+  def initialize(id:, published_date: archived: false)
     @id = :id
     @genre = []
     @author = []
-    @source = []
     @label = []
     @published_date = Date.parse(published_date)
     @archived = archived
@@ -22,27 +21,16 @@ class Item
     @author.push(author) unless @author.include?(author)
   end
 
-  def add_source(source)
-    @source.push(source) unless @source.include?(source)
-  end
-
   def add_label(label)
     @label.push(label) unless @label.include?(label)
     puts @label
   end
 
   def can_be_archived?
-    current_date = Date.today
-    # current_date.year - published_date.year > 10
+    (Date.today.year - published_date.year) > 10
   end
 
   def move_to_archive
     @archived = can_be_archived?
   end
 end
-
-# item = Item.new(true, 10/10/2000)
-
-current = Date.today.year
-
-puts current - 10
