@@ -26,4 +26,37 @@ class App
       run
     end
   end
+
+  def list_items
+    list_items_choices = [
+      'List books',
+      'List music albums',
+      'List games'
+    ]
+    list_items_choices.each_with_index do |choice, index|
+      puts "#{index + 1}. #{choice}"
+    end
+  end
+
+  def list_categories
+    list_categories_choices = [
+      'List labels',
+      'List genres',
+      'List authors'
+    ]
+    list_categories_choices.each_with_index do |choice, index|
+      puts "#{index + 1}. #{choice}"
+    end
+  end
+
+  def add_item
+    add_item_choices = [
+      'Create book',
+      'Create music album',
+      'Create game'
+    ]
+    add_item_choices.each_with_index do |choice, index|
+      puts "#{index + 1}. #{choice}"
+    end
+  end
 end
