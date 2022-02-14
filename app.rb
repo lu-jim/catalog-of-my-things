@@ -59,4 +59,8 @@ class App
       puts "#{index + 1}. #{choice}"
     end
   end
+
+  def close
+    puts 'Thanks for using the catalog'
+  end
 end
