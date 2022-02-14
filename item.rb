@@ -1,17 +1,18 @@
 # frozen_string_literal: true
-
+require 'date'
 # class item
 class Item
   attr_reader :id
   attr_accessor :genre, :author, :source, :label, :published_date
 
-  def initialize(_archived)
+  def initialize(archived: false)
     @id = :id
     @genre = []
     @author = []
     @source = []
-    @label = :label
-    @published_date = :published_date
+    @label = []
+    @published_date = Date.parse(published_date)
+    @archived = archived
   end
 
   def add_genre(genre)
@@ -24,16 +25,25 @@ class Item
 
   def add_source(source)
     @source.push(source) unless @source.include? (source)
-    puts @source
   end
 
+  def add_label(label)
+    @label.push(label) unless @label.include? (label)
+    puts @label
+  end
 
+  def can_be_archived?
+    current_date = Date.today
+    # current_date.year - published_date.year > 10
+  end
 
-
-  def can_be_archived?; end
-
-  def move_to_archive; end
+  def move_to_archive
+    @archived = can_be_archived?
+   end
 end
 
-item = Item.new(true)
-item.add_source('autho3')
+# item = Item.new(true, 10/10/2000)
+
+current = Date.today.year
+
+puts current - 10
