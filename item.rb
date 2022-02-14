@@ -8,8 +8,8 @@ class Item
   def initialize(_archived)
     @id = :id
     @genre = []
-    @author = :author
-    @source = :source
+    @author = []
+    @source = []
     @label = :label
     @published_date = :published_date
   end
@@ -19,8 +19,11 @@ class Item
   end
 
   def add_author(author)
-    @author = author
+    @author.push(author) unless @author.include? (author)
+    puts @author
   end
+
+  
 
 
   def can_be_archived?; end
@@ -29,4 +32,4 @@ class Item
 end
 
 item = Item.new(true)
-item.add_genre('pop')
+item.add_author('author')
