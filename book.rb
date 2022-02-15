@@ -1,3 +1,3 @@
 require './item'
 
-class Book
+class Book < Item 
