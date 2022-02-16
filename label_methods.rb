@@ -3,7 +3,7 @@ require './label'
 class LabelMethods
   def initialize
     labels = File.read('./json/labels.json')
-    @labels = labels == '' ? [] : convert_hash_to_labels(JSON.parse(labels))
+    @labels = labels == '' ? [] : change_hashes_to_labels(JSON.parse(labels))
   end
 
   def add_label
@@ -16,3 +16,8 @@ class LabelMethods
     save_labels
     label
   end
+
+  def save_labels
+    hash_arr = change_labels_to_hashes
+    json = JSON.generate(hash_arr)
+    File.write('./json/labels.json', json)
