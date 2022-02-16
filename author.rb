@@ -10,7 +10,7 @@ class Author
   end
 
   def add_item(item)
-    item.author = self
-    @items.push(item)
+    item.author = @id
+    @items.push(item.id)
   end
 end

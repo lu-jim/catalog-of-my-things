@@ -19,6 +19,7 @@ class Item
   end
 
   def add_author(author)
+    
     @author.push(author) unless @author.include?(author)
   end
 
