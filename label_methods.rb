@@ -7,12 +7,13 @@ class LabelMethods
   end
 
   def add_label
-    puts "enter title"
+    puts 'enter title'
     title = gets.chomp
-    puts "enter color"
+    puts 'enter color'
     color = gets.chomp
-    label = Label.new(id: nil, title: title, color: color)
+    label = Label.new(title, color, id: nil)
     @labels.push(label)
     save_labels
     label
   end
+end
