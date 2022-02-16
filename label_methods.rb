@@ -39,3 +39,13 @@ class LabelMethods
     end
     labels
   end
+
+  def change_labels_to_hashes
+    hash_arr = []
+    @labels.each do |l|
+      hash = {title: l.title, color: l.color, id: l.id }
+      hash_arr.push(hash)
+    end
+    hash_arr
+  end
+end
