@@ -46,4 +46,15 @@ class BookHandler
   end
 
   def save_books
-    hash
+    hash_arr =change_books_to_hashes
+    json = JSON.generate(hash_arr)
+    File.write('./json/books.json', json)
+  end
+
+  private
+
+  def change_hash_to_books(hashes)
+    books = []
+    hashes.each do |h|
+      b = Book.new(id: nil, pubisher: h[])
+
