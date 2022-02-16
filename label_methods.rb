@@ -33,3 +33,9 @@ class LabelMethods
 
   def change_hashes_to_labels(hashes)
     labels = []
+    hashes.each do |k|
+      l = Label.new(id: k['id'], title: k['title'], color: k['color'])
+      labels << label
+    end
+    labels
+  end
