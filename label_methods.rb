@@ -21,3 +21,15 @@ class LabelMethods
     hash_arr = change_labels_to_hashes
     json = JSON.generate(hash_arr)
     File.write('./json/labels.json', json)
+  end
+
+  def list_all_labels
+    @labels.each_with_index do |l, i|
+      puts "#{i}) ID: #{l.id}, Title: #{l.title}, Color: #{l.color}"
+    end
+  end
+
+  private 
+
+  def change_hashes_to_labels(hashes)
+    labels = []
