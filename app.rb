@@ -1,8 +1,11 @@
+require './label_methods'
+
 class App
   def initialize
     @books = []
     @albums = []
     @games = []
+    @label_methods = LabelMethods.new
   end
 
   def run
@@ -46,6 +49,10 @@ class App
     ]
     list_categories_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
+    end
+
+    if choice.include? '1'
+      @label_methods.list_all_labels
     end
   end
 
