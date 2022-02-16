@@ -56,5 +56,16 @@ class BookHandler
   def change_hash_to_books(hashes)
     books = []
     hashes.each do |h|
-      b = Book.new(id: nil, pubisher: h[])
+      b = Book.new(id: nil, pubisher: h['publisher'], cover_state: h['cover_state'], publish_date: h['publish_date'], archived: h['archived'])
+      l = change_hashes_to_labels h['label']
+      b.add_label(l)
+      books << b
+    end
+    books
+  end
+
+  def change_hashes_to_labels(hash)
+    Label.new(id: hash['id'], title: hash['title'], color: hash['color'])
+  end
+
 
