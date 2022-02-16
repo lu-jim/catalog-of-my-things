@@ -1,11 +1,12 @@
 require 'date'
+require 'securerandom'
 
 class Item
   attr_reader :id
-  attr_accessor :genre, :label, :published_date :archived
+  attr_accessor :genre, :label, :published_date, :archived
 
-  def initialize(id:, published_date: archived: false)
-    @id = :id
+  def initialize(published_date, archived: false)
+    @id = SecureRandom.hex(4)
     @genre = []
     @author = []
     @label = []
