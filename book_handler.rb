@@ -29,3 +29,21 @@ class BookHandler
   end
 
   def add_label(book)
+    puts 'Enter if you are adding label to this book [y/n]'
+    response = gets.chomp
+    book.add_label if response.downcase == 'y'
+  end
+
+  def list_all_books
+    @books.each_with_index do |b, i|
+      puts "#{i}) Publisher: #{b.publisher},
+      Cover_State: #{b.cover_state},
+      Publish_Date: #{b.publish_date},
+      Archived: #{b.archived}"
+
+      show_label b.label
+    end
+  end
+
+  def save_books
+    hash
