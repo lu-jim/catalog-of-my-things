@@ -68,4 +68,16 @@ class BookHandler
     Label.new(id: hash['id'], title: hash['title'], color: hash['color'])
   end
 
+  def change_books_to_hashes
+    hash_arr = []
+    @books.each do |b|
+      hash = { publisher: b.pubisher, cover_state: b.cover_state, publish_date: b.publish_date, archived: b.archived,
+      label: if b.label {id: b.label.id, title: b.title, color: b.label.color} end }
+      hash_arr.push(hash)
+      end
+      hash_arr
+    end
+
+    def 
+
 
