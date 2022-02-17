@@ -1,8 +1,12 @@
+require './book_handler'
+require './label_methods'
+
 class App
   def initialize
-    @books = []
+    @books_handler = BookHandler.new
     @albums = []
     @games = []
+    @label_methods = LabelsManager.new
   end
 
   def run
@@ -36,6 +40,8 @@ class App
     list_items_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
     end
+    answer = gets.chomp
+    @books_handler.list_all_books if answer.to_i == 1
   end
 
   def list_categories
@@ -47,6 +53,9 @@ class App
     list_categories_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
     end
+    ans = gets.chomp.to_i
+
+    @label_methods.list_all_labels if ans == 1
   end
 
   def add_item
@@ -57,6 +66,8 @@ class App
     ]
     add_item_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
+      ans = gets.chomp
+      @books_handler.add_book if ans.to_i == 1
     end
   end
 
