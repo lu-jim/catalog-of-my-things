@@ -41,10 +41,7 @@ class App
       puts "#{index + 1}. #{choice}"
     end
     answer = gets.chomp
-    if answer.to_i == 1
-      @books_handler.list_all_books
-    end
-    
+    @books_handler.list_all_books if answer.to_i == 1
   end
 
   def list_categories
@@ -58,9 +55,7 @@ class App
     end
     ans = gets.chomp.to_i
 
-    if ans == 1
-      @label_methods.list_all_labels
-    end
+    @label_methods.list_all_labels if ans == 1
   end
 
   def add_item
@@ -72,12 +67,8 @@ class App
     add_item_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
       ans = gets.chomp
-      if ans.to_i ==1
-        @books_handler.add_book
-      end
-
+      @books_handler.add_book if ans.to_i == 1
     end
-
   end
 
   def close

@@ -20,7 +20,7 @@ class BookHandler
     puts 'Enter is book archived [Y/N] ?'
     archived = gets.chomp
     is_archived = archived.downcase == 'y'
-    book = Book.new(id: nil, publisher: publisher, cover_state: cover_state, publish_date: publish_date)
+    book = Book.new(id: nil, publisher:, cover_state:, publish_date:)
     book.move_to_archive if is_archived
     add_label book
     @books.push(book)
@@ -93,6 +93,3 @@ class BookHandler
       "
   end
 end
-
-
-

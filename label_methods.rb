@@ -11,7 +11,7 @@ class LabelsManager
     title = gets.chomp
     puts 'Enter Color'
     color = gets.chomp
-    label = Label.new(id: nil, title: title, color: color)
+    label = Label.new(id: nil, title:, color:)
     @labels.push(label)
     save_labels
     label
