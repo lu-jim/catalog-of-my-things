@@ -23,7 +23,5 @@ describe Label do
     it 'should check if id is passed' do
       expect(label.id).not_to eq(nil)
     end
-
-
   end
 end
