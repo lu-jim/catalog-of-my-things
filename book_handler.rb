@@ -74,10 +74,15 @@ class BookHandler
       hash = { publisher: b.pubisher, cover_state: b.cover_state, publish_date: b.publish_date, archived: b.archived,
       label: if b.label {id: b.label.id, title: b.title, color: b.label.color} end }
       hash_arr.push(hash)
-      end
-      hash_arr
     end
+      hash_arr
+  end
 
-    def 
+  def show_label(label)
+    return unless label.title
+    print "Lable: ID: #{label.id}, Title: #{label.title}, Color: #{label.color} "
+  end
+end
+
 
 
