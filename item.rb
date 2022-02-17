@@ -2,7 +2,7 @@ require 'date'
 require 'securerandom'
 
 class Item
-  attr_reader :id
+  attr_reader :id, :author
   attr_accessor :genre, :label, :published_date, :archived
 
   def initialize(published_date, archived: false)
