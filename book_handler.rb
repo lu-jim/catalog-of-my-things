@@ -86,7 +86,7 @@ class BookHandler
     return unless label.title
 
     print "
-            Lable:
+            Label:
               ID: #{label.id},
               Title: #{label.title},
               Color: #{label.color}

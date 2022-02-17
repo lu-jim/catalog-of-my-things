@@ -1,12 +1,16 @@
 require 'date'
 require './label_methods'
+require 'securerandom'
 
 class Item
-  attr_reader :id
+  attr_reader :id, :author
   attr_accessor :genre, :source, :label, :publish_date, :archived
 
   def initialize(id:, publish_date:, archived: false)
-    @id = id || Random.rand(1..1_000_000)
+    @id = id || SecureRandom.hex(4)
+    @genre = []
+    @author = []
+    @label = []
     @publish_date = Date.parse(publish_date)
     @archived = archived
   end
