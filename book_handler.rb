@@ -16,11 +16,11 @@ class BookHandler
     puts 'Enter cover state'
     cover_state = gets.chomp
     puts 'Enter publish date'
-    publish_date = gets.chomp
+    published_date = gets.chomp
     puts 'Enter is book archived [Y/N] ?'
     archived = gets.chomp
     is_archived = archived.downcase == 'y'
-    book = Book.new(id: nil, publisher:, cover_state:, publish_date:)
+    book = Book.new(id: nil, publisher:, cover_state:, published_date:)
     book.move_to_archive if is_archived
     add_label book
     @books.push(book)
@@ -39,7 +39,7 @@ class BookHandler
        #{i})
             Publisher: #{b.publisher},
             Cover State: #{b.cover_state},
-            Publish Date: #{b.publish_date},
+            Publish Date: #{b.published_date},
             Archived : #{b.archived}
         "
       show_label b.label
@@ -57,7 +57,7 @@ class BookHandler
   def convert_hashs_to_books(hashes)
     books = []
     hashes.each do |h|
-      b = Book.new(id: nil, publisher: h['publisher'], cover_state: h['cover_state'], publish_date: h['publish_date'],
+      b = Book.new(id: nil, publisher: h['publisher'], cover_state: h['cover_state'], published_date: h['published_date'],
                    archived: h['archived'])
       l = convert_hash_to_label h['label']
       b.add_label(l)
@@ -73,7 +73,7 @@ class BookHandler
   def convert_books_to_hashes
     hash_arr = []
     @books.each do |b|
-      hash = { publisher: b.publisher, cover_state: b.cover_state, publish_date: b.publish_date,
+      hash = { publisher: b.publisher, cover_state: b.cover_state, published_date: b.published_date,
                archived: b.archived, label: if b.label
                                               { id: b.label.id, title: b.label.title, color: b.label.color }
                                             end }

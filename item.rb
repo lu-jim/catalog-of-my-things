@@ -4,14 +4,14 @@ require 'securerandom'
 
 class Item
   attr_reader :id, :author
-  attr_accessor :genre, :source, :label, :publish_date, :archived
+  attr_accessor :genre, :source, :label, :published_date, :archived
 
-  def initialize(id:, publish_date:, archived: false)
+  def initialize(id:, published_date:, archived: false)
     @id = id || SecureRandom.hex(4)
     @genre = []
     @author = []
     @label = []
-    @publish_date = Date.parse(publish_date)
+    @published_date = Date.parse(published_date)
     @archived = archived
   end
 
@@ -37,14 +37,14 @@ class Item
   end
 
   def to_s
-    "ID: #{@id} - Publish Date: #{@publish_date} - Genre: #{@genre&.name} \
+    "ID: #{@id} - Publish Date: #{@published_date} - Genre: #{@genre&.name} \
     - Source: #{@source&.name} - Label: #{@label&.name} - Archived? #{@archived}"
   end
 
   def to_json(_options = {})
     {
       'id' => @id,
-      'publish_date' => @publish_date.strftime('%Y-%m-%d'),
+      'published_date' => @published_date.strftime('%Y-%m-%d'),
       'genre_id' => @genre&.id,
       'source_id' => @source&.id,
       'label_id' => @label&.id,
@@ -55,6 +55,6 @@ class Item
   private
 
   def can_be_archived?
-    (Date.today.year - publish_date.year) > 10
+    (Date.today.year - published_date.year) > 10
   end
 end
