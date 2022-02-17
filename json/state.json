@@ -1,0 +1,20 @@
+[
+  {
+    "books": [
+      { "type": "book", "title": "LOTR", "author": "Tolkien" },
+      { "type": "book", "title": "Harry Potter", "author": "J K Rowling" }
+    ]
+  },
+  {
+    "albums": [
+      { "type": "album", "title": "Kind of Blue", "author": "Miles Davis" },
+      { "type": "album", "title": "Pet Sounds", "author": "The Beach Boys" }
+    ]
+  },
+  {
+    "games": [
+      { "type": "game", "title": "Legend of Zelda - Ocarina of Time", "author": "Shigeru Miyamoto" },
+      { "type": "game", "title": "Portal 2", "author": "Joshua Weier" }
+    ]
+  }
+]
