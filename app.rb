@@ -44,6 +44,7 @@ class App
     if answer.to_i == 1
       @books_handler.list_all_books
     end
+    
   end
 
   def list_categories
@@ -55,8 +56,9 @@ class App
     list_categories_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
     end
+    ans = gets.chomp.to_i
 
-    if choice.include? '1'
+    if ans == 1
       @label_methods.list_all_labels
     end
   end
