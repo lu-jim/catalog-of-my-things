@@ -31,4 +31,20 @@ class Genrehandler
     puts ''
     puts 'Creating Genre >>>'
     print 'Name'
+    name = gets.chomp
+    genre = Genre.new(id: nil, name: name)
+    if check_if_genre_exists? (name)
+      get_genre_from_name(name)
+    else
+      genre
+    end
+  end
+
+  def list_of_genre_names
+    arr = []
+    @genres.each { |e| arr.push(e.name.downcase) }
+    arr 
+  end
+
+  def check_if_genre_exists?(name)
 
