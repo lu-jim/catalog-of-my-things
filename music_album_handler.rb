@@ -59,3 +59,15 @@ def MusicAlbumHandler
     case option
     when '1'
       genre_handler.create_genre
+    when '2'
+      genre_handler.list_genre_with_index
+      genre_index = gets.chomp
+      genre_handler.get_genre_from_index(genre_index)
+    when '3'
+      puts 'Creating music album without genre'
+      nil
+    else
+      puts 'Invalid option, aborting genre creation'
+    end
+  end
+end
