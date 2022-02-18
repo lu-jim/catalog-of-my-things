@@ -64,3 +64,7 @@ class Genrehandler
     end
   end
 
+  def get_genre_from_index(index)
+    @genre.find { |e| e if e.name.downcase == name,downcase }
+  end
+end
