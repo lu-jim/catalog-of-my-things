@@ -32,7 +32,7 @@ class GenreHandler
     puts 'Creating Genre...'
     print 'Name: '
     name = gets.chomp
-    genre = Genre.new(id: nil, name: name)
+    genre = Genre.new(id: nil, name:)
     if check_if_genre_exists?(name)
       get_genre_from_name(name)
     else

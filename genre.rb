@@ -9,7 +9,7 @@ class Genre
   end
 
   def add_item(item)
-    item.add_genre (self)
+    item.add_genre(self)
     @items.push(item) unless @items.include?(item)
   end
 

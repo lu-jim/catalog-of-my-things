@@ -41,7 +41,7 @@ class MusicAlbumHandler
     on_spotify = gets.chomp
     print 'Archived? [Y/N]: '
     archived = gets.chomp
-    music_album = MusicAlbum.new(id: nil, published_date: published_date, on_spotify: translate_input(on_spotify))
+    music_album = MusicAlbum.new(id: nil, published_date:, on_spotify: translate_input(on_spotify))
     if translate_input(archived)
       music_album.move_to_archive
       puts "It wasn't possible to archive this Music Album" if translate_input(archived) != music_album.archived
