@@ -65,6 +65,14 @@ class Genrehandler
   end
 
   def get_genre_from_index(index)
+    @genres[index.to_i]
+  end
+
+  def get_genre_from_id(id)
+    @genres.find { |e| e if e.id == id }
+  end
+
+  def get_genre_from_name(name)
     @genre.find { |e| e if e.name.downcase == name,downcase }
   end
 end
