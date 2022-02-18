@@ -1,7 +1,7 @@
 require 'json'
 require './genre'
 
-class Genrehandler
+class GenreHandler
   attr_reader :genres
 
   def initialize
@@ -73,6 +73,6 @@ class Genrehandler
   end
 
   def get_genre_from_name(name)
-    @genre.find { |e| e if e.name.downcase == name,downcase }
+    @genre.find { |e| e if e.name.downcase == name.downcase }
   end
 end

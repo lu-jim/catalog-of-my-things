@@ -1,11 +1,13 @@
+require './music_album_handler'
+require './genre_handler'
 require './book_handler'
 require './label_methods'
 
 class App
   def initialize
     @books_handler = BookHandler.new
-    @albums = []
-    @games = []
+    @music_album_handler = MusicAlbumHandler.new
+    @genre_handler = GenreHandler.new
     @label_methods = LabelsManager.new
   end
 
@@ -41,7 +43,7 @@ class App
       puts "#{index + 1}. #{choice}"
     end
     answer = gets.chomp
-    @books_handler.list_all_books if answer.to_i == 1
+    @music_album_handler.music_albums if answer.to_i == 2
   end
 
   def list_categories
@@ -55,7 +57,7 @@ class App
     end
     ans = gets.chomp.to_i
 
-    @label_methods.list_all_labels if ans == 1
+    @genre_handler.genres if ans == 2
   end
 
   def add_item
@@ -67,7 +69,7 @@ class App
     add_item_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
       ans = gets.chomp
-      @books_handler.add_book if ans.to_i == 1
+      @music_album_handler.create_music_album(@genre_handler) if ans.to_i == 2
     end
   end
 

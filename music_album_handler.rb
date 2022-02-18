@@ -3,7 +3,7 @@ require './music_album'
 require './genre_handler'
 require './translate'
 
-def MusicAlbumHandler
+class MusicAlbumHandler
   include Translate
   attr_reader :music_albums
 
