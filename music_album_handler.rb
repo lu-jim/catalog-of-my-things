@@ -7,11 +7,11 @@ class MusicAlbumHandler
   include Translate
   attr_reader :music_albums
 
-  def initialize 
+  def initialize
     @music_albums = []
   end
 
-  def save 
+  def save
     File.write('json/music_album.json', JSON.generate(@music_albums.map(&:to_json))) unless @music_albums.empty?
   end
 
@@ -34,25 +34,25 @@ class MusicAlbumHandler
 
   def create_music_album(genre_handler)
     puts ''
-    puts 'Creating music album >>>.'
-    print 'Publish date: '
+    puts 'Creating Music Album...'
+    print 'Published date: '
     published_date = gets.chomp
-    print 'On Spotify? [y/n]'
+    print 'On Spotify? [Y/N]: '
     on_spotify = gets.chomp
-    print 'Archived? [Y/N]'
+    print 'Archived? [Y/N]: '
     archived = gets.chomp
     music_album = MusicAlbum.new(id: nil, published_date: published_date, on_spotify: translate_input(on_spotify))
     if translate_input(archived)
       music_album.move_to_archive
-      puts 'That music album cannot be archived' if translate_input(archived) != music_album.archived
+      puts "It wasn't possible to archive this Music Album" if translate_input(archived) != music_album.archived
     end
-    puts "1)Create a new genre for use \n2) List and use an existing genre \3 Continue without genre"
+    puts "1) Create a new genre to use \n2) List and use an existing genre\n3) Create without genre"
     option = gets.chomp
     genre = prompt_genre(option, genre_handler)
-    music_album.add_genre(genre) 
+    music_album.add_genre(genre)
     genre_handler.add_genre(genre) unless genre_handler.genres.include?(genre)
     @music_albums.push(music_album)
-    puts 'Music Album created'
+    puts 'Music Album created!'
   end
 
   def prompt_genre(option, genre_handler)
@@ -64,7 +64,7 @@ class MusicAlbumHandler
       genre_index = gets.chomp
       genre_handler.get_genre_from_index(genre_index)
     when '3'
-      puts 'Creating music album without genre'
+      puts 'Creating Music Album without genre'
       nil
     else
       puts 'Invalid option, aborting genre creation'
