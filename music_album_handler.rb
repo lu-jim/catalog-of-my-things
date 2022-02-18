@@ -46,4 +46,16 @@ def MusicAlbumHandler
       music_album.move_to_archive
       puts 'That music album cannot be archived' if translate_input(archived) != music_album.archived
     end
-    puts "1)"
+    puts "1)Create a new genre for use \n2) List and use an existing genre \3 Continue without genre"
+    option = gets.chomp
+    genre = prompt_genre(option, genre_handler)
+    music_album.add_genre(genre) 
+    genre_handler.add_genre(genre) unless genre_handler.genres.include?(genre)
+    @music_albums.push(music_album)
+    puts 'Music Album created'
+  end
+
+  def prompt_genre(option, genre_handler)
+    case option
+    when '1'
+      genre_handler.create_genre
