@@ -20,6 +20,10 @@ class Item
     genre&.items&.push(self)
   end
 
+  def add_author(author)
+    @author.push(author) unless @author.include?(author)
+  end
+
   def add_source(source)
     @source = source
     source.items.push(self) unless source.items.include?(self)

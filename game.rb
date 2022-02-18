@@ -3,8 +3,8 @@ require_relative 'item'
 class Game < Item
   attr_reader :multiplayer, :last_played_at
 
-  def initialize(published_date, multiplayer, last_played_at, archived: false)
-    super(published_date, multiplayer, last_played_at, archived:)
+  def initialize(id:, published_date:, multiplayer:, last_played_at:, archived: false)
+    super(id:, published_date:, multiplayer:, last_played_at:, archived:)
     @multiplayer = multiplayer
     @last_played_at = Date.parse(published_date)
   end
