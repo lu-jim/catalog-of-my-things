@@ -15,3 +15,8 @@ class MusicAlbum < Item
   def to_s
     "[Music Album] #{super} - On Spotify? #{@on_spotify}"
   end
+
+  def to_json(_options = {})
+    super.merge({'on_spotify' => @on_spotify})
+  end
+end
