@@ -43,7 +43,7 @@ class App
       puts "#{index + 1}. #{choice}"
     end
     answer = gets.chomp
-    @music_album_handler.music_albums if answer.to_i == 2
+    @music_album_handler.music_albums if answer.to_i == 1
   end
 
   def list_categories
@@ -57,7 +57,7 @@ class App
     end
     ans = gets.chomp.to_i
 
-    @genre_handler.genres if ans == 2
+    @genre_handler.genres if ans == 1
   end
 
   def add_item
@@ -69,7 +69,7 @@ class App
     add_item_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
       ans = gets.chomp
-      @music_album_handler.create_music_album(@genre_handler) if ans.to_i == 2
+      @music_album_handler.create_music_album(@genre_handler) if ans.to_i == 1
     end
   end
 

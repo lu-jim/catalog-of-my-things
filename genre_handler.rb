@@ -8,7 +8,7 @@ class GenreHandler
     @genres = []
   end
 
-  def save 
+  def save
     File.write('json/genre.json', JSON.generate(@genres.map(&:to_json))) unless @genres.empty?
   end
 
@@ -24,16 +24,16 @@ class GenreHandler
   end
 
   def add_genre(genre)
-    @genre.push(genre)
+    @genres.push(genre)
   end
 
   def create_genre
     puts ''
-    puts 'Creating Genre >>>'
-    print 'Name'
+    puts 'Creating Genre...'
+    print 'Name: '
     name = gets.chomp
     genre = Genre.new(id: nil, name: name)
-    if check_if_genre_exists? (name)
+    if check_if_genre_exists?(name)
       get_genre_from_name(name)
     else
       genre
@@ -43,7 +43,7 @@ class GenreHandler
   def list_of_genre_names
     arr = []
     @genres.each { |e| arr.push(e.name.downcase) }
-    arr 
+    arr
   end
 
   def check_if_genre_exists?(name)
@@ -60,7 +60,7 @@ class GenreHandler
     if @genres.empty?
       puts 'There is no genre registered yet'
     else
-      @genres.each_with_index { |genre, index| puts "#{index}) #{genre}"}
+      @genres.each_with_index { |genre, index| puts "#{index}) #{genre}" }
     end
   end
 
@@ -73,6 +73,6 @@ class GenreHandler
   end
 
   def get_genre_from_name(name)
-    @genre.find { |e| e if e.name.downcase == name.downcase }
+    @genres.find { |e| e if e.name.downcase == name.downcase }
   end
 end
