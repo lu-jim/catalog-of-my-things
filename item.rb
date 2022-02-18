@@ -21,7 +21,8 @@ class Item
   end
 
   def add_author(author)
-    @author.push(author) unless @author.include?(author)
+    @author = author
+    author.items.push(self) unless author.items include?(self)
   end
 
   def add_source(source)
@@ -42,7 +43,7 @@ class Item
 
   def to_s
     "ID: #{@id} - Publish Date: #{@published_date} - Genre: #{@genre&.name} \
-    - Source: #{@source&.name} - Author: #{@author&.name} - Label: #{@label&.name} - Archived? #{@archived}"
+    - Source: #{@source&.name} - Author: #{@author.first_name} #{@author.last_name} - Label: #{@label&.name} - Archived? #{@archived}"
   end
 
   def to_json(_options = {})
