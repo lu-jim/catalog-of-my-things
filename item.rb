@@ -42,7 +42,7 @@ class Item
 
   def to_s
     "ID: #{@id} - Publish Date: #{@published_date} - Genre: #{@genre&.name} \
-    - Source: #{@source&.name} - Label: #{@label&.name} - Archived? #{@archived}"
+    - Source: #{@source&.name} - Author: #{@author&.name} - Label: #{@label&.name} - Archived? #{@archived}"
   end
 
   def to_json(_options = {})

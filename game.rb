@@ -5,7 +5,7 @@ class Game < Item
   attr_accessor :multiplayer, :last_played_at
 
   def initialize(id:, published_date:, multiplayer:, last_played_at:, archived: false)
-    super(id, published_date:, archived:)
+    super(id:, published_date:, archived:)
     @multiplayer = multiplayer
     @last_played_at = Date.parse(last_played_at)
   end
@@ -16,11 +16,11 @@ class Game < Item
 
   def as_json(*)
     {
-      id: @id,
-      published_date: @published_date,
-      archived: @archived,
-      multiplayer: @multiplayer,
-      last_played_at: @last_played_at,
+      'id' => @id,
+      'published_date' => @published_date,
+      'archived' => @archived,
+      'multiplayer' => @multiplayer,
+      'last_played_at' => @last_played_at
     }
   end
 

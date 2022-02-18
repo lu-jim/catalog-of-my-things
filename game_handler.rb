@@ -24,5 +24,4 @@ class GameHandler
     @games.push(new_game)
     save_game
   end
-
 end
