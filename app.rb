@@ -5,7 +5,7 @@ class App
   def initialize
     @books_handler = BookHandler.new
     @albums = []
-    @games = []
+    @games = GameHandler.new
     @label_methods = LabelsManager.new
   end
 

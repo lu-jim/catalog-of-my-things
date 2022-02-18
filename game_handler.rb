@@ -5,8 +5,15 @@ class GameHandler
   attr_reader :games
 
   def initialize
-    games = File.read('./json/games.json')
-    @games = games == '' ? [] : JSON.parse(games)
+    games_data = File.read('./json/games.json') if File.exist?('./json/games.json')
+    games = JSON.parse!(games_data)
+    @games = if games.nil?
+               []
+             else
+               games.each do |game|
+                 JSON.parse!(game)
+               end
+             end
   end
 
   def add_game
@@ -20,8 +27,25 @@ class GameHandler
     archived = gets.chomp
     is_archived = archived.downcase == 'y'
     new_game = Game.new(id: nil, last_played_at:, multiplayer:, published_date:)
-    new_game.move_to_archive if is_archived
-    @games.push(new_game)
+    book.move_to_archive if is_archived
+    @games.push(new_game.to_s)
     save_game
+  end
+
+  def list_games
+    games_list = @games.map | games | "
+      id: #{games['id']}
+      Published Date: #{games['published_date']}
+      Author: #{games['author']}
+      Archived: #{games['archived']}
+      Multiplayer?: #{games['multiplayer']}
+      Last Played at: #{games['last_played_at']}
+      "
+
+    puts games_list
+  end
+
+  def save_game
+    File.write('./json/games.json', @games)
   end
 end

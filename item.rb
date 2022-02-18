@@ -43,7 +43,8 @@ class Item
 
   def to_s
     "ID: #{@id} - Publish Date: #{@published_date} - Genre: #{@genre&.name} \
-    - Source: #{@source&.name} - Author: #{@author.first_name} #{@author.last_name} - Label: #{@label&.name} - Archived? #{@archived}"
+    - Source: #{@source&.name} - Author: #{@author.first_name} #{@author.last_name} \
+    - Label: #{@label&.name} - Archived? #{@archived}"
   end
 
   def to_json(_options = {})
@@ -51,6 +52,7 @@ class Item
       'id' => @id,
       'published_date' => @published_date.strftime('%Y-%m-%d'),
       'genre_id' => @genre&.id,
+      'author_id' => @author.id,
       'source_id' => @source&.id,
       'label_id' => @label&.id,
       'archived' => @archived

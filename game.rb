@@ -4,7 +4,7 @@ require 'json'
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
 
-  def initialize(id:, published_date:, multiplayer:, last_played_at:, archived: false)
+  def initialize(id:, published_date:, multiplayer:, last_played_at:)
     super(id:, published_date:, archived:)
     @multiplayer = multiplayer
     @last_played_at = Date.parse(last_played_at)
@@ -14,17 +14,13 @@ class Game < Item
     super && (@last_played_at.year - published_date.year) > 2
   end
 
-  def as_json(*)
-    {
-      'id' => @id,
-      'published_date' => @published_date,
-      'archived' => @archived,
-      'multiplayer' => @multiplayer,
-      'last_played_at' => @last_played_at
-    }
+  def to_hash
+    { id: @id, published_date: @published_date, author: @author, archived: @archived, multiplayer: @multiplayer,
+      last_played_at: @last_played_at }
   end
 
-  def to_json(*options)
-    as_json(*options).to_json(*options)
+  def to_s
+    "{ id: #{@id}, published_date: #{@published_date}, author: #{@author}, archived: #{@archived},\
+multiplayer: #{@multiplayer}, last_played_at: #{@last_played_at} }"
   end
 end
