@@ -47,4 +47,20 @@ class Genrehandler
   end
 
   def check_if_genre_exists?(name)
+    if list_of_genre_names.include?(name.downcase)
+      puts 'Genre is already in the list of genres'
+      true
+    else
+      puts "Genre #{name} created!"
+      false
+    end
+  end
+
+  def list_genre_with_index
+    if @genres.empty?
+      puts 'There is no genre registered yet'
+    else
+      @genres.each_with_index { |genre, index| puts "#{index}) #{genre}"}
+    end
+  end
 
