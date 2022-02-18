@@ -27,3 +27,23 @@ def MusicAlbumHandler
       []
     end
   end
+
+  def add_music_album(music_album)
+    @music_albums.push(music_album)
+  end
+
+  def create_music_album(genre_handler)
+    puts ''
+    puts 'Creating music album >>>.'
+    print 'Publish date: '
+    published_date = gets.chomp
+    print 'On Spotify? [y/n]'
+    on_spotify = gets.chomp
+    print 'Archived? [Y/N]'
+    archived = gets.chomp
+    music_album = MusicAlbum.new(id: nil, published_date: published_date, on_spotify: translate_input(on_spotify))
+    if translate_input(archived)
+      music_album.move_to_archive
+      puts 'That music album cannot be archived' if translate_input(archived) != music_album.archived
+    end
+    puts "1)"
