@@ -42,8 +42,15 @@ class App
     list_items_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
     end
-    answer = gets.chomp
-    @music_album_handler.music_albums if answer.to_i == 1
+    answer = gets.chomp.to_i
+    case answer
+    when 1
+      puts 'listing books'
+    when 2
+      puts "listing music albums bb"
+    when 3 
+      puts 'listing games'
+    end
   end
 
   def list_categories
@@ -56,8 +63,14 @@ class App
       puts "#{index + 1}. #{choice}"
     end
     ans = gets.chomp.to_i
-
-    @genre_handler.genres if ans == 1
+    case ans
+    when 1
+      puts 'listing labels @bun'
+    when 2 
+      puts 'listing genre @bun'
+    when 3 
+      puts 'listing authors @bun'
+    end
   end
 
   def add_item
@@ -68,8 +81,15 @@ class App
     ]
     add_item_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
-      ans = gets.chomp
-      @music_album_handler.create_music_album(@genre_handler) if ans.to_i == 1
+    end
+    ans = gets.chomp.to_i
+    case ans
+    when 1
+      puts 'creating book @bun'
+    when 2 
+      puts 'creating music bhama'
+    when 3
+      puts 'creating games @bun'
     end
   end
 
