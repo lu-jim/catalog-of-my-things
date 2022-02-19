@@ -42,3 +42,16 @@ CREATE TABLE album (
   CONSTRAINT label_id_fk FOREIGN KEY(label) REFERENCES label(id)
 );
 
+CREATE TABLE book (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  publisher VARCHAR(100),
+  cover_state VARCHAR(100),
+  genre INT,
+  author INT,
+  label INT,
+  publish_date DATE,
+  archived BOOLEAN,
+  CONSTRAINT genre_id_fk FOREIGN KEY(genre) REFERENCES genre(id),
+  CONSTRAINT author_id_fk FOREIGN KEY(author) REFERENCES author(id),
+  CONSTRAINT label_id_fk FOREIGN KEY(label) REFERENCES label(id)
+);
