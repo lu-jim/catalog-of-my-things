@@ -12,8 +12,8 @@ describe Game do
       expect(game.multiplayer).to eq false
     end
 
-    it 'should properly render published date' do
-      expect(game.published_date.to_s).to eq '1984-06-06'
+    it 'should properly render last played date' do
+      expect(game.last_played_at.to_s).to eq '2020-12-10'
     end
   end
 end
