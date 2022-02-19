@@ -5,6 +5,7 @@ class Book < Item
 
   def initialize(title:, publisher:, cover_state:, **all)
     super(**all)
+    @title = title
     @publisher = publisher
     @cover_state = cover_state
   end

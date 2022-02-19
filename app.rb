@@ -35,7 +35,7 @@ class App
   end
 
   def list_items
-    list_items_choices = ['List books', 'List music albums', 'List games']
+    list_items_choices = ['List books', 'List games', 'Back to start']
     list_items_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
     end
@@ -44,11 +44,9 @@ class App
     when 1
       @books_handler.list_books
     when 2
-      puts 'list_albums'
-    when 3
       @games.list_games
-    when 4
-      close
+    when 3
+      run
     else
       puts 'Select a valid option'
     end
@@ -56,7 +54,7 @@ class App
   end
 
   def list_categories
-    list_categories_choices = ['List labels', 'List genres', 'List authors', 'Return to start']
+    list_categories_choices = ['List labels', 'List authors', 'Return to start']
     list_categories_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
     end
@@ -65,10 +63,8 @@ class App
     when 1
       @label_methods.list_all_labels
     when 2
-      puts 'list_genres'
-    when 3
       @author_manager.list_authors
-    when 4
+    when 3
       run
     else
       puts 'Select a valid option'
@@ -77,7 +73,7 @@ class App
   end
 
   def add_item
-    add_item_choices = ['Create book', 'Create music album', 'Create game', 'Exit']
+    add_item_choices = ['Create book', 'Create game', 'Back to start']
     add_item_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
     end
@@ -86,11 +82,9 @@ class App
     when 1
       @books_handler.add_book
     when 2
-      puts 'add_album'
-    when 3
       @games.add_game
     when 4
-      close
+      run
     else
       puts 'Select a valid option'
     end
