@@ -46,8 +46,10 @@ class App
     case answer
     when 1
       puts 'listing books'
+      @books_handler.list_all_books
     when 2
       puts "listing music albums bb"
+      @music_album_handler.music_albums
     when 3 
       puts 'listing games'
     end
@@ -66,10 +68,12 @@ class App
     case ans
     when 1
       puts 'listing labels @bun'
+      @label_methods.list_all_labels
     when 2 
       puts 'listing genre @bun'
+      puts @genre_handler.genres
     when 3 
-      puts 'listing authors @bun'
+      puts 'listing authors method'
     end
   end
 
