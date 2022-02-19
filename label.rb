@@ -14,6 +14,6 @@ class Label
   end
 
   def to_hash
-    {id: @id, title:  @title, color: @color}
+    { id: @id, title: @title, color: @color }
   end
 end

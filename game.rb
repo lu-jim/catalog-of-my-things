@@ -17,12 +17,7 @@ class Game < Item
   end
 
   def to_hash
-    { id: @id, published_date: @published_date, author: @author, archived: @archived, multiplayer: @multiplayer,
-      last_played_at: @last_played_at }
-  end
-
-  def to_s
-    "{ id: #{@id}, published_date: #{@published_date}, author: #{@author}, archived: #{@archived},\
-multiplayer: #{@multiplayer}, last_played_at: #{@last_played_at} }"
+    { id: @id, title: @name, published_date: @published_date, archived: @archived, author: @author, label: @label,
+      multiplayer: @multiplayer, last_played_at: @last_played_at }
   end
 end
