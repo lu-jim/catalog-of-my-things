@@ -26,7 +26,7 @@ class GameHandler
   end
 
   def list_games
-    games_list = @games.map { |games|
+    games_list = @games.map do |games|
       "id: #{games['id']}
       Published Date: #{games['published_date']}
       Author: #{games['author']}
@@ -34,12 +34,12 @@ class GameHandler
       Multiplayer?: #{games['multiplayer']}
       Last Played at: #{games['last_played_at']}
       "
-    }
-
+    end
     puts games_list
   end
 
   def save_game
-    File.write('./json/games.json', @games)
+    game_data = JSON.generate(games)
+    File.write('./json/games.json', game_data)
   end
 end

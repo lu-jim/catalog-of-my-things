@@ -33,11 +33,7 @@ class App
   end
 
   def list_items
-    list_items_choices = [
-      'List books',
-      'List music albums',
-      'List games'
-    ]
+    list_items_choices = ['List books', 'List music albums', 'List games']
     list_items_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
     end
@@ -49,13 +45,12 @@ class App
       puts 'list_albums'
     when 3
       @games.list_games
-      run
     when 4
       close
     else
       puts 'Select a valid option'
-      run
     end
+    run
   end
 
   def list_categories
@@ -73,12 +68,7 @@ class App
   end
 
   def add_item
-    add_item_choices = [
-      'Create book',
-      'Create music album',
-      'Create game',
-      'Exit'
-    ]
+    add_item_choices = ['Create book', 'Create music album', 'Create game', 'Exit']
     add_item_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
     end
