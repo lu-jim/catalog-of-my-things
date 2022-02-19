@@ -10,11 +10,8 @@ class AuthorManager
   end
 
   def new_author
-    ---
-    author = Author.new(first_name, last_name)
-    @author_list.push(author.to_hash)
     save_authors
-    puts 'Author successfully added'
+    puts 'Author - feature on hold'
     author
   end
 
