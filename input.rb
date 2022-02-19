@@ -1,5 +1,5 @@
 class Input
-  def item
+  def self.item
     puts 'Enter item name'
     name = gets.chomp
     puts 'Enter publish date'
@@ -18,7 +18,7 @@ class Input
     [name, published_date, is_archived, label_title, label_color, author_first_name, author_last_name]
   end
 
-  def book
+  def self.book
     puts 'Enter publisher'
     publisher = gets.chomp
     puts 'Enter cover state'
@@ -26,7 +26,7 @@ class Input
     [publisher, cover_state]
   end
 
-  def game
+  def self.game
     puts 'Is game multiplayer? [Y/N]'
     multiplayer = gets.chomp.downcase == 'y'
     puts 'Last played at'
