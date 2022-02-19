@@ -7,17 +7,43 @@ class BookHandler
   attr_reader :books
 
   def initialize
-    books = File.read('./json/books.json')
-    @books = books == '' ? [] : convert_hashs_to_books(JSON.parse(books))
+    @books = read_book
+  end
+
+  def read_book
+    book_file = File.read('./json/books.json') if File.exist?('./json/books.json')
+    book_file.nil? ? [] : JSON.parse(book_file)
+  end
+
+  def list_books
+    book_data = read_book
+    books_list = book_data.map do |books|
+      "id: #{books['id']}
+      Book Title: #{books['title']}
+      Published Date: #{books['published_date']}
+      Archived: #{books['archived']}
+
+      Author: #{books['author']}
+      Label: #{books['label']}
+
+      Publisher: #{books['publisher']}
+      Cover State: #{books['cover_state']}
+      "
+    end
+    puts books_list
   end
 
   def add_book
-    name, published_date, is_archived, label_title, label_color, author_first_name, author_last_name = Input.item
+    title, published_date, is_archived, label_title, label_color, author_first_name, author_last_name = Input.item
     publisher, cover_state = Input.book
-    book = Book.new(id: nil, publisher:, cover_state:, published_date:)
-    book.move_to_archive if is_archived
-    add_label(book)
-    @books.push(book)
+    new_book = Book.new(id: nil, published_date:, title:, genre: {}, label: {}, author: {},
+                        publisher:, cover_state:)
+    label = Label.new(title: label_title, color: label_color)
+    label.add_item(new_book)
+    author = Author.new(author_first_name, author_last_name)
+    author.add_item(new_book)
+    new_book.move_to_archive if is_archived
+    @books << new_book.to_hash
     save_books
   end
 
@@ -41,9 +67,8 @@ class BookHandler
   end
 
   def save_books
-    hash_arr = convert_books_to_hashes
-    json = JSON.generate(hash_arr)
-    File.write('./json/books.json', json)
+    book_data = JSON.generate(@books)
+    File.write('./json/books.json', book_data)
   end
 
   private

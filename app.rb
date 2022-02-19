@@ -42,7 +42,7 @@ class App
     selected_option = gets.chomp.to_i
     case selected_option
     when 1
-      @books_handler.list_all_books
+      @books_handler.list_books
     when 2
       puts 'list_albums'
     when 3

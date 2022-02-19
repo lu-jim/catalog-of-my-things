@@ -18,6 +18,6 @@ class Label
   end
 
   def to_s
-    "ID: #{@id}, Title:  #{@title}, Color #{@color}"
+    "ID: #{@id} | Title: #{@title} - Color: #{@color}"
   end
 end
