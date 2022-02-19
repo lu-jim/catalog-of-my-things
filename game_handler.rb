@@ -9,6 +9,7 @@ class GameHandler
   def initialize
     @games = read_game
     @author_manager = AuthorManager.new
+    @input = Input.new
   end
 
   def add_game
