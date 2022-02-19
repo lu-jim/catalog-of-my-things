@@ -11,7 +11,8 @@ class Game < Item
   end
 
   def can_be_archived?
-    super && (@last_played_at.year - published_date.year) > 2
+    today = Date.today
+    super && (today.year - @last_played_at.year) > 2
   end
 
   def to_hash

@@ -15,5 +15,9 @@ describe Game do
     it 'should properly render last played date' do
       expect(game.last_played_at.to_s).to eq '2020-12-10'
     end
+
+    it 'should return false as game cannot be archived' do
+      expect(game.can_be_archived?).to eq false
+    end
   end
 end
