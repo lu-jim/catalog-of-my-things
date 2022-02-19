@@ -1,6 +1,7 @@
 require 'json'
 require './book'
 require './label'
+require './input'
 
 class BookHandler
   attr_reader :books
@@ -11,15 +12,8 @@ class BookHandler
   end
 
   def add_book
-    puts 'Enter publisher'
-    publisher = gets.chomp
-    puts 'Enter cover state'
-    cover_state = gets.chomp
-    puts 'Enter publish date'
-    published_date = gets.chomp
-    puts 'Enter is book archived [Y/N] ?'
-    archived = gets.chomp
-    is_archived = archived.downcase == 'y'
+    name, published_date, is_archived, label_title, label_color, author_first_name, author_last_name = Input.item
+    publisher, cover_state = Input.book
     book = Book.new(id: nil, publisher:, cover_state:, published_date:)
     book.move_to_archive if is_archived
     add_label(book)
