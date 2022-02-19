@@ -7,6 +7,7 @@ class Item
   attr_reader :id
   attr_accessor :genre, :author, :source, :label, :published_date, :archived, :name
 
+  # rubocop:disable Metrics/ParameterLists:
   def initialize(id:, published_date:, genre: '', author: '', label: '', archived: false)
     @id = id || SecureRandom.hex(4)
     @genre = genre
@@ -16,6 +17,7 @@ class Item
     @archived = archived
   end
 
+  # rubocop:enable Metrics/ParameterLists:
   def add_genre(genre)
     @genre = genre
     genre&.items&.push(self)
