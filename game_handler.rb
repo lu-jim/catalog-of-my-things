@@ -14,15 +14,13 @@ class GameHandler
   end
 
   def add_game
-
-    new_game = Game.new(id: nil, last_played_at:, multiplayer:, published_date:)
+    name, published_date, is_archived, label_title, label_color, author_first_name, author_last_name = Input.item
+    multiplayer, last_played_at = Input.game
+    new_game = Game.new(name:, multiplayer:, last_played_at:, published_date:, label:{}, author:{})
+    label = Label.new(label_title:, label_color:)
+    author = Author.new( author_first_name:, author_last_name:)
     new_game.move_to_archive if is_archived
-    puts 'Enter if you want to add an author to this game [Y/N] ?'
-    response = gets.chomp
-    if response.downcase == 'y'
-      new_game_author = @author_manager.new_author
-      new_game.add_author(new_game_author.to_s)
-    end
+    
     @games.push(new_game.to_hash)
     puts new_game.to_hash
     save_game
