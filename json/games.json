@@ -2,5 +2,25 @@
   { "id": "6621c734", "published_date": "2001-01-10", "author": [], "archived": null, "multiplayer": "y", "last_played_at": "2021-10-10" },
   { "id": "3a4d60b4", "published_date": "2009-03-14", "author": [], "archived": false, "multiplayer": true, "last_played_at": "2021-12-12" },
   { "id": "c4187953", "published_date": "2019-03-12", "author": [], "archived": null, "multiplayer": false, "last_played_at": "2021-02-20" },
-  { "id": "dbda8484", "published_date": "1984-06-06", "author": [], "archived": null, "multiplayer": false, "last_played_at": "2020-12-10" }
+  { "id": "dbda8484", "published_date": "1984-06-06", "author": [], "archived": null, "multiplayer": false, "last_played_at": "2020-12-10" },
+  {
+    "id": "e7284424",
+    "title": "tetris",
+    "published_date": "1990-10-10",
+    "archived": false,
+    "author": "id: 3994f229 | Full Name: lu jim",
+    "label": "#<Label:0x00007fa681f328a0>",
+    "multiplayer": false,
+    "last_played_at": "2021-10-10"
+  },
+  {
+    "id": "4aa0a968",
+    "title": "Zelda",
+    "published_date": "1995-12-10",
+    "archived": false,
+    "author": "id: 5be04922 | Full Name: Nintendo 64\n  ",
+    "label": "ID: 590477, Title:  Ocarina, Color gold",
+    "multiplayer": false,
+    "last_played_at": "2009-12-01"
+  }
 ]

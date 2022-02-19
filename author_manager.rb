@@ -23,8 +23,7 @@ class AuthorManager
   def list_authors
     pretty_author_list = @author_list.map do |author|
       "id: #{author['id']}
-      Full Name: #{author['first_name']} #{author['last_name']}
-    "
+      Full Name: #{author['first_name']} #{author['last_name']}"
     end
     puts pretty_author_list
   end

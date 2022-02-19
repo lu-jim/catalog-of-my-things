@@ -2,11 +2,11 @@ require_relative 'item'
 require 'json'
 
 class Game < Item
-  attr_accessor :name, :multiplayer, :last_played_at
+  attr_accessor :title, :multiplayer, :last_played_at
 
-  def initialize(name:, multiplayer:, last_played_at:, **all)
+  def initialize(title:, multiplayer:, last_played_at:, **all)
     super(**all)
-    @name = name
+    @title = title
     @multiplayer = multiplayer
     @last_played_at = Date.parse(last_played_at)
   end
@@ -17,7 +17,7 @@ class Game < Item
   end
 
   def to_hash
-    { id: @id, title: @name, published_date: @published_date, archived: @archived, author: @author, label: @label,
+    { id: @id, title: @title, published_date: @published_date, archived: @archived, author: @author, label: @label,
       multiplayer: @multiplayer, last_played_at: @last_played_at }
   end
 end

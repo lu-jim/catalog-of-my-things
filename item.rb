@@ -7,7 +7,7 @@ class Item
   attr_reader :id
   attr_accessor :genre, :author, :source, :label, :published_date, :archived, :name
 
-  def initialize(id:, published_date:, archived: false)
+  def initialize(id:, published_date:, genre: '', author: '', label: '', archived: false)
     @id = id || SecureRandom.hex(4)
     @genre = genre
     @author = author

@@ -21,7 +21,6 @@ class Author
   end
 
   def to_s
-    "id: #{@id} | Full Name: #{@first_name} #{@last_name}
-  "
+    "id: #{@id} | Full Name: #{@first_name} #{@last_name}"
   end
 end
