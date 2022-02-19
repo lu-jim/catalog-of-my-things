@@ -23,6 +23,10 @@ To get a local copy up and running follow these simple steps.
 
 ### Testing
 - Run `rspec spec` to run the tests for this project
+
+### Video Demo
+- [Link](https://drive.google.com/file/d/1Z2BL_79wNcyEJmL9xfrLGj5C8vLMuZqJ/view?usp=sharing)
+
 ## Authors
 
 👤 **Luis Fernando Jimenez**
