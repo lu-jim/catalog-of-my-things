@@ -20,6 +20,11 @@ class Item
     genre&.items&.push(self)
   end
 
+  def add_author(author)
+    @author = author
+    author.items.push(self) unless author.items include?(self)
+  end
+
   def add_source(source)
     @source = source
     source.items.push(self) unless source.items.include?(self)
@@ -38,7 +43,8 @@ class Item
 
   def to_s
     "ID: #{@id} - Publish Date: #{@published_date} - Genre: #{@genre&.name} \
-    - Source: #{@source&.name} - Label: #{@label&.name} - Archived? #{@archived}"
+    - Source: #{@source&.name} - Author: #{@author.first_name} #{@author.last_name} \
+    - Label: #{@label&.name} - Archived? #{@archived}"
   end
 
   def to_json(_options = {})
@@ -46,6 +52,7 @@ class Item
       'id' => @id,
       'published_date' => @published_date.strftime('%Y-%m-%d'),
       'genre_id' => @genre&.id,
+      'author_id' => @author.id,
       'source_id' => @source&.id,
       'label_id' => @label&.id,
       'archived' => @archived

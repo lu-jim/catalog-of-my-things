@@ -13,6 +13,6 @@ class Author
 
   def add_item(item)
     item.add_author(@id)
-    @items.push(item.id) unless @items.include?(item.id)
+    @items.push(item) unless @items.include?(item)
   end
 end
