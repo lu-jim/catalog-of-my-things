@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# catalog_of_my_things
+# Catalog Of My Things
 Console app that will help you to keep a record of different types of things you won: books, music albums, movies, and games.
 ## Built With
 
@@ -36,12 +36,6 @@ To get a local copy up and running follow these simple steps.
 - GitHub: [@Barnabas Mutinhiri](https://github.com/mutinhiri)
 - Twitter: [@Bunbee02](https://twitter.com/Bunbee02)
 - LinkedIn: [@Bunbee](https://linkedin.com/in/linkedinhandle)
-
-👤 **Anibal Amoroso**
-
-- GitHub: [sj1978](https://github.com/sj1978)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/anibalamoroso/)
-- Twitter: [@AmorosoAnibal](https://twitter.com/AmorosoAnibal)
 
 ## 🤝 Contributing
 

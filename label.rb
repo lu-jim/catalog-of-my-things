@@ -9,7 +9,15 @@ class Label
   end
 
   def add_item(item)
+    @items << item
     item.label = self
-    @items.push(item)
+  end
+
+  def to_hash
+    { id: @id, title: @title, color: @color }
+  end
+
+  def to_s
+    "ID: #{@id} | Title: #{@title} - Color: #{@color}"
   end
 end

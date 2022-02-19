@@ -1,7 +1,7 @@
 require 'securerandom'
 
 class Author
-  attr_accessor :first_name, :last_name
+  attr_accessor :first_name, :last_name, :items
   attr_reader :id
 
   def initialize(first_name, last_name)
@@ -12,7 +12,15 @@ class Author
   end
 
   def add_item(item)
-    item.add_author(@id)
-    @items.push(item) unless @items.include?(item)
+    @items << item
+    item.author = self
+  end
+
+  def to_hash
+    { id: @id, first_name: @first_name, last_name: @last_name, items: @items }
+  end
+
+  def to_s
+    "id: #{@id} | Full Name: #{@first_name} #{@last_name}"
   end
 end

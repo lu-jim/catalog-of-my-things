@@ -1,20 +1,23 @@
 require 'date'
+require './author_manager'
 require './label_methods'
 require 'securerandom'
 
 class Item
-  attr_reader :id, :author
-  attr_accessor :genre, :source, :label, :published_date, :archived
+  attr_reader :id
+  attr_accessor :genre, :author, :source, :label, :published_date, :archived, :name
 
-  def initialize(id:, published_date:, archived: false)
+  # rubocop:disable Metrics/ParameterLists:
+  def initialize(id:, published_date:, genre: '', author: '', label: '', archived: false)
     @id = id || SecureRandom.hex(4)
-    @genre = []
-    @author = []
-    @label = []
+    @genre = genre
+    @author = author
+    @label = label
     @published_date = Date.parse(published_date)
     @archived = archived
   end
 
+  # rubocop:enable Metrics/ParameterLists:
   def add_genre(genre)
     @genre = genre
     genre&.items&.push(self)
@@ -22,7 +25,7 @@ class Item
 
   def add_author(author)
     @author = author
-    author.items.push(self) unless author.items include?(self)
+    author.add_item(self) unless author.items.include?(self)
   end
 
   def add_source(source)
@@ -43,7 +46,7 @@ class Item
 
   def to_s
     "ID: #{@id} - Publish Date: #{@published_date} - Genre: #{@genre&.name} \
-    - Source: #{@source&.name} - Author: #{@author.first_name} #{@author.last_name} \
+    - Source: #{@source&.name} - Author: #{@author&.first_name} #{@author&.last_name} \
     - Label: #{@label&.name} - Archived? #{@archived}"
   end
 
@@ -51,10 +54,6 @@ class Item
     {
       'id' => @id,
       'published_date' => @published_date.strftime('%Y-%m-%d'),
-      'genre_id' => @genre&.id,
-      'author_id' => @author.id,
-      'source_id' => @source&.id,
-      'label_id' => @label&.id,
       'archived' => @archived
     }
   end
