@@ -10,10 +10,7 @@ class AuthorManager
   end
 
   def new_author
-    puts 'Enter First Name'
-    first_name = gets.chomp
-    puts 'Enter Last Name'
-    last_name = gets.chomp
+    ---
     author = Author.new(first_name, last_name)
     @author_list.push(author.to_hash)
     save_authors

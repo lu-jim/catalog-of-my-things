@@ -56,7 +56,7 @@ class App
   end
 
   def list_categories
-    list_categories_choices = ['List labels', 'List genres', 'List authors']
+    list_categories_choices = ['List labels', 'List genres', 'List authors', 'Return to start']
     list_categories_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
     end
@@ -69,7 +69,7 @@ class App
     when 3
       @author_manager.list_authors
     when 4
-      close
+      run
     else
       puts 'Select a valid option'
     end
@@ -93,8 +93,8 @@ class App
       close
     else
       puts 'Select a valid option'
-      run
     end
+    run
   end
 
   def close

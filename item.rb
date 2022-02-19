@@ -5,10 +5,11 @@ require 'securerandom'
 
 class Item
   attr_reader :id
-  attr_accessor :genre, :author, :source, :label, :published_date, :archived
+  attr_accessor :genre, :author, :source, :label, :published_date, :archived, :name
 
-  def initialize(id:, published_date:, archived: false)
+  def initialize(id:, name:, published_date:, archived: false)
     @id = id || SecureRandom.hex(4)
+    @name = name
     @genre = []
     @author = []
     @label = []
@@ -22,7 +23,7 @@ class Item
   end
 
   def add_author(author)
-    @author = author.to_hash
+    @author = Author.to_hash
     author.items.push(self) unless author.items.include?(self)
   end
 
