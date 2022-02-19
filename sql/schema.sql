@@ -15,3 +15,16 @@ CREATE TABLE genre (
   name VARCHAR(100)
 );
 
+CREATE TABLE game (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  multiplayer BOOLEAN,
+  last_played_at DATE,
+  genre INT,
+  author INT,
+  label INT,
+  publish_date DATE,
+  archived BOOLEAN,
+  CONSTRAINT genre_id_fk FOREIGN KEY(genre) REFERENCES genre(id),
+  CONSTRAINT author_id_fk FOREIGN KEY(author) REFERENCES author(id),
+  CONSTRAINT label_id_fk FOREIGN KEY(label) REFERENCES label(id)
+);
