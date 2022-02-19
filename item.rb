@@ -51,10 +51,10 @@ class Item
     {
       'id' => @id,
       'published_date' => @published_date.strftime('%Y-%m-%d'),
-      'genre_id' => @genre&.id,
-      'author_id' => @author.id,
-      'source_id' => @source&.id,
-      'label_id' => @label&.id,
+      'genre_id' => @genre&.id || '',
+      'author_id' => @author.id || '',
+      'source_id' => @source&.id || '',
+      'label_id' => @label&.id || '',
       'archived' => @archived
     }
   end

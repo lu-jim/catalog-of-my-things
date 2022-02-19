@@ -1,4 +1,5 @@
 require './book_handler'
+require './game_handler'
 require './label_methods'
 
 class App
@@ -40,8 +41,21 @@ class App
     list_items_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
     end
-    answer = gets.chomp
-    @books_handler.list_all_books if answer.to_i == 1
+    selected_option = gets.chomp.to_i
+    case selected_option
+    when 1
+      @books_handler.list_all_books
+    when 2
+      puts 'list_albums'
+    when 3
+      @games.list_games
+      run
+    when 4
+      close
+    else
+      puts 'Select a valid option'
+      run
+    end
   end
 
   def list_categories
@@ -62,12 +76,25 @@ class App
     add_item_choices = [
       'Create book',
       'Create music album',
-      'Create game'
+      'Create game',
+      'Exit'
     ]
     add_item_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
-      ans = gets.chomp
-      @books_handler.add_book if ans.to_i == 1
+    end
+    selected_option = gets.chomp.to_i
+    case selected_option
+    when 1
+      @books_handler.add_book
+    when 2
+      puts 'add_album'
+    when 3
+      @games.add_game
+    when 4
+      close
+    else
+      puts 'Select a valid option'
+      run
     end
   end
 
