@@ -14,7 +14,7 @@ class GameHandler
   def add_game
     name, published_date, is_archived, label_title, label_color, author_first_name, author_last_name = Input.item
     multiplayer, last_played_at = Input.game
-    new_game = Game.new(name:, multiplayer:, last_played_at:, published_date:, label:{}, author:{})
+    new_game = Game.new(id: nil, name:, multiplayer:, last_played_at:, published_date:, label: {}, author: {})
     label = Label.new(label_title:, label_color:)
     label.add_item(new_game)
     author = Author.new(author_first_name:, author_last_name:)

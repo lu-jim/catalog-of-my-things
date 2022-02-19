@@ -9,9 +9,9 @@ class Item
 
   def initialize(id:, published_date:, archived: false)
     @id = id || SecureRandom.hex(4)
-    @genre = []
-    @author = []
-    @label = []
+    @genre = genre
+    @author = author
+    @label = label
     @published_date = Date.parse(published_date)
     @archived = archived
   end

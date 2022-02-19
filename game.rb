@@ -2,7 +2,7 @@ require_relative 'item'
 require 'json'
 
 class Game < Item
-  attr_accessor :multiplayer, :last_played_at
+  attr_accessor :name, :multiplayer, :last_played_at
 
   def initialize(name:, multiplayer:, last_played_at:, **all)
     super(**all)
