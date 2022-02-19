@@ -22,7 +22,7 @@ class BookHandler
     is_archived = archived.downcase == 'y'
     book = Book.new(id: nil, publisher:, cover_state:, published_date:)
     book.move_to_archive if is_archived
-    add_label book
+    add_label(book)
     @books.push(book)
     save_books
   end

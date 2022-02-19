@@ -1,6 +1,7 @@
 require './book_handler'
 require './game_handler'
 require './label_methods'
+require './author_manager'
 
 class App
   def initialize
@@ -8,6 +9,7 @@ class App
     @albums = []
     @games = GameHandler.new
     @label_methods = LabelsManager.new
+    @author_manager = AuthorManager.new
   end
 
   def run
@@ -54,17 +56,24 @@ class App
   end
 
   def list_categories
-    list_categories_choices = [
-      'List labels',
-      'List genres',
-      'List authors'
-    ]
+    list_categories_choices = ['List labels', 'List genres', 'List authors']
     list_categories_choices.each_with_index do |choice, index|
       puts "#{index + 1}. #{choice}"
     end
-    ans = gets.chomp.to_i
-
-    @label_methods.list_all_labels if ans == 1
+    selected_option = gets.chomp.to_i
+    case selected_option
+    when 1
+      @label_methods.list_all_labels
+    when 2
+      puts 'list_genres'
+    when 3
+      @author_manager.list_authors
+    when 4
+      close
+    else
+      puts 'Select a valid option'
+    end
+    run
   end
 
   def add_item
